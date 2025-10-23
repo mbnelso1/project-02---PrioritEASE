@@ -6,33 +6,32 @@ PrioritEASE is a single-page, local-first web app that helps users rank tasks by
 
 ## ASCII Diagram (with brief legend)
 
-        +------+
-        | User |
-        +------+
-           |
-           v
-   +--------------------+
-   |     UI / Views     |  Home • Compare • Settings
-   +--------------------+
-           |
-           v
-   +--------------------+
-   |     Controller     |  handles clicks & updates
-   +--------------------+
-           |
-           v
-   +-----------------------------+
-   |        State / Model        |
-   |  tasks • order • settings   |
-   |  schema version             |
-   +-----------------------------+
-        /                 \
-       v                   v
-+----------------+   +----------------------+
-|  LocalStorage  |   |  CloudService (opt)  |
-|  offline data  |   |  REST: public GET &  |
-|  persistence   |   |  aggregate PUT/POST  |
-+----------------+   +----------------------+
+        +-------+
+    | User  |
+    +-------+
+        |
+        v
++--------------------+
+|     UI / Views     |
+|  Home • Compare •  |
+|     Settings       |
++--------------------+
+        |
+        v
++--------------------+
+|    Controller      |
+|  Handles clicks &  |
+|     updates        |
++--------------------+
+        |
+        v
++-----------------------------+
+|        State / Model        |
+|  tasks • order • settings   |
+|  schema version             |
++-----------------------------+
+       /                 \
+      v                   v
 
 
 **Legend**
