@@ -4,36 +4,10 @@ PrioritEASE is a single-page, local-first web app that helps users rank tasks by
 
 ---
 
-## ASCII Diagram (with brief legend)
+## ASCII Diagram 
+<img width="286" height="261" alt="Screenshot 2025-10-23 at 2 28 47 PM" src="https://github.com/user-attachments/assets/8bbe997e-8760-4431-931a-9e2d7cfdac9f" />
 
-        +-------+
-    | User  |
-    +-------+
-        |
-        v
-+--------------------+
-|     UI / Views     |
-|  Home • Compare •  |
-|     Settings       |
-+--------------------+
-        |
-        v
-+--------------------+
-|    Controller      |
-|  Handles clicks &  |
-|     updates        |
-+--------------------+
-        |
-        v
-+-----------------------------+
-|        State / Model        |
-|  tasks • order • settings   |
-|  schema version             |
-+-----------------------------+
-       /                 \
-      v                   v
-
-
+ 
 **Legend**
 - **User → UI → Controller → State** is the primary flow.
 - **Router** swaps views inside the SPA (no page reload).
