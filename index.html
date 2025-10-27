@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>PrioritEASE</title>
+  <style>body{font-family:system-ui, sans-serif; max-width:900px; margin:2rem auto} nav a{margin-right:1rem}</style>
+</head>
+<body>
+  <h1>PrioritEASE</h1>
+  <nav>
+    <a href="#/home">Home</a>
+    <a href="#/compare">Compare</a>
+    <a href="#/settings">Settings</a>
+  </nav>
+  <div id="app"></div>
+  <script type="module">
+    import { Router } from './src/routes/Router.js';
+    const mountNode = document.getElementById('app');
+    const router = new Router(mountNode);
+    router.start();
+  </script>
+</body>
+</html>
