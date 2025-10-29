@@ -1,6 +1,9 @@
 
+// src/ui/SettingsView.js
 import { appState } from '../state/AppStateModel.js';
 import { putSnapshot, fetchLatestSnapshot } from '../services/AnalyticsService.js';
+
+const APP_VERSION = "1.0.0"; // change here if you bump versions
 
 function uuid(){ return crypto.randomUUID?.() || Math.random().toString(16).slice(2); }
 
@@ -18,7 +21,8 @@ export class SettingsView {
         <p class="muted" style="font-size:.9rem;line-height:1.4;margin-top:.5rem;">
           Bin ID is hardcoded in <code>src/services/AnalyticsService.js</code>.<br/>
           If your bin requires a key, set it once in this browser console:<br/>
-          <code>localStorage.setItem('prioritease.jsonbin.key','&lt;X-Master-Key&gt;')</code>
+          <code>localStorage.setItem('prioritease.jsonbin.key','&lt;X-Master-Key&gt;')</code><br/>
+          App version: <code>${APP_VERSION}</code>
         </p>
       </div>
     `;
@@ -37,7 +41,6 @@ export class SettingsView {
   }
 
   mount() {
-    const ver = this.el.querySelector('#ver');
     const status = this.el.querySelector('#status');
     const btnPub = this.el.querySelector('#publish');
 
@@ -61,7 +64,7 @@ export class SettingsView {
 
       const payload = {
         type: "ranking_snapshot",
-        app_version: ver.value || "1.0.0",
+        app_version: APP_VERSION,
         snapshot_id: uuid(),
         created_at: now,
         updated_at: now,
@@ -109,4 +112,3 @@ export class SettingsView {
 
   dispose() {}
 }
-
