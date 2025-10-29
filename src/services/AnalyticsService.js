@@ -57,3 +57,4 @@ export async function fetchLatestSnapshot() {
   if (!res.ok) throw new Error(`GET ${res.status}`);
   return res.json();
 }
+
