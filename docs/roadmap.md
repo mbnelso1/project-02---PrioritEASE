@@ -22,16 +22,15 @@
 
 ---
 
-# Full Version (Sprint 3) – Enhancements 1-8
+# Full Version (Sprint 3) – Enhancements 1-7
 
 - **JSONBin Integration:** Publish ranking snapshots via PUT and display confirmation (“Saved” status).  
 - **Settings View:** Allow exporting/importing JSON backups manually.  
-- **Analytics Counter:** Track and upload anonymous comparison counts.  
 - **Visual Feedback:** Add transition animations between Compare prompts.  
 - **Empty/Loading/Error States:** Improve UX for network calls and app startup.  
 - **Dark Mode Toggle:** Persist user preference in local settings.  
 - **UI Polish:** Responsive layout and accessibility pass (ARIA labels).  
-- **Autosave Indicator:** Show subtle “Saved” tooltip when tasks sync locally or to cloud.
+- **Autosave:** Show subtle “Saved” tooltip when tasks sync locally or to cloud.
 
 ---
 
