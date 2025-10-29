@@ -10,9 +10,6 @@ export class SettingsView {
     this.el.innerHTML = `
       <h2>Settings</h2>
       <div style="display:grid;gap:.5rem;max-width:520px;">
-        <label>App Version
-          <input id="ver" value="1.0.0" />
-        </label>
         <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;">
           <button id="publish">Publish Snapshot</button>
           <button id="import">Fetch Latest Snapshot</button>
