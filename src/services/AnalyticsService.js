@@ -40,14 +40,27 @@ export async function putSnapshot(payload, { retries = 2 } = {}) {
   throw lastErr || new Error("put failed");
 }
 
-/** GET latest from your bin: https://api.jsonbin.io/v3/b/{BIN_ID}/latest */
+// GET latest from your bin. Tries /b/{id}/latest first, then /bins/{id}/latest.
 export async function fetchLatestSnapshot() {
   if (!BIN_ID) throw new Error("BIN_ID is not set in AnalyticsService.js");
-  const url = `https://api.jsonbin.io/v3/b/${BIN_ID}/latest`;
 
-  const res = await fetch(url, { headers: jsonHeaders() });
-  if (!res.ok) throw new Error(`GET ${res.status}`);
-  return res.json();
+  const headers = {
+    "Content-Type": "application/json",
+    ...(localStorage.getItem('prioritease.jsonbin.key')
+        ? { "X-Master-Key": localStorage.getItem('prioritease.jsonbin.key') }
+        : {})
+  };
+
+  // 1) Preferred v3 route
+  let res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, { headers });
+  if (res.ok) return res.json();
+
+  // 2) Fallback (some docs/UI still show this)
+  res = await fetch(`https://api.jsonbin.io/v3/bins/${BIN_ID}/latest`, { headers });
+  if (res.ok) return res.json();
+
+  throw new Error(`GET ${res.status}`);
 }
+
 
 
